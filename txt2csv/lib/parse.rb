@@ -13,16 +13,16 @@ class Parse
         parsed_name[:pre] = word.shift if prefixes.include? word.first
         parsed_name[:first] = word.shift if word[0] != nil
         parsed_name[:middle] = word.shift if word[0] != nil
-        parsed_name.values 
+        parsed_name.values
     end
 
     def self.parse_phone (phone_string)
 
         parsed_phone = {country_code:"", area_code:"", prefix:"", line:"", extension:""}
-        
+
         #parse extensions
         parsed_phone[:extension] = phone_string.match(/x\d*/).to_s[1..9] if phone_string.include?("x")
-        
+
         if phone_string.include?("(")
             #parse (ddd)ddd-dddd
             parsed_phone[:area_code] = phone_string[1..3]
