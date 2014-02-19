@@ -1,23 +1,5 @@
 require "spec_helper"
-
 require "parse.rb"
-
-# The format of the names looks to be something like:
-
-#     [prefix] [first_name] [middle_name | middle_initial] last_name [suffix]
-
-# where: 
-
-# * Everything in [square brackets] is optional. 
-# * There may be a middle name or a middle initial, but not both. 
-# * If there is a middle name or a last name, there will be a first name. (For "M. Jackson", "M." is the first name.)
-# * There is always a last name (For "Miss Jane," "Jane" is a last name)
-# * Sometimes the last name is hyphenated (as in "Dr. Huntington-Smythe"). Do not split hyphenated last names.
-
-prefixes = ['M.', 'Mrs.', 'Mr.', 'Dr.', 'Ms.', 'Sister', "Lady"]
-suffixes = %w(Jr. Sr. II III IV PhD.)
-
-#country_code area_code prefix line extension
 
 describe Parse do
   it "should parse email addresses without a name" do   
